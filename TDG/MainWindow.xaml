@@ -1,0 +1,67 @@
+﻿<Window x:Class="TDG.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:TDG"
+        xmlns:model="clr-namespace:TDG.Models"
+        xmlns:lb="clr-namespace:TDG.Behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+            <Button Content="A" Click="SetA"/>
+            <Button Content="B" Click="SetB"/>
+        </UniformGrid>
+        <DataGrid x:Name="data">
+            <b:Interaction.Behaviors>
+                <lb:DataGridColumsSelectorBehavior>
+                    <lb:DataGridColumnsMap Type="{x:Type model:A}">
+                        <lb:DataGridColumnsMap.Columns>
+                            <DataGridTextColumn Header="Code" Binding="{Binding Code}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextAlignment" Value="Right"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.EditingElementStyle>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="TextAlignment" Value="Right"/>
+                                        <Setter Property="IsReadOnly" Value="True"/>
+                                    </Style>
+                                </DataGridTextColumn.EditingElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Value" Binding="{Binding Value,StringFormat=c}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="TextAlignment" Value="Right"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.EditingElementStyle>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="TextAlignment" Value="Right"/>
+                                    </Style>
+                                </DataGridTextColumn.EditingElementStyle>
+                            </DataGridTextColumn>
+                        </lb:DataGridColumnsMap.Columns>
+                    </lb:DataGridColumnsMap>
+                    <lb:DataGridColumnsMap Type="{x:Type model:B}">
+                        <lb:DataGridColumnsMap.Columns>
+                            <DataGridTextColumn Header="Code" Binding="{Binding UserId}">
+                                <DataGridTextColumn.EditingElementStyle>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="IsReadOnly" Value="True"/>
+                                    </Style>
+                                </DataGridTextColumn.EditingElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridCheckBoxColumn Header="Enabled" Binding="{Binding Enabled}"/>
+                        </lb:DataGridColumnsMap.Columns>
+                    </lb:DataGridColumnsMap>
+                </lb:DataGridColumsSelectorBehavior>
+            </b:Interaction.Behaviors>
+        </DataGrid>
+    </DockPanel>
+</Window>
