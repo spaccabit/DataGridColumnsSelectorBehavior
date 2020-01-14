@@ -67,7 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Behaviors\DataGridColumnsMap.cs" />
-    <Compile Include="Behaviors\DataGridColumsSelectorBehavior.cs" />
+    <Compile Include="Behaviors\DataGridColumnsSelectorBehavior.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

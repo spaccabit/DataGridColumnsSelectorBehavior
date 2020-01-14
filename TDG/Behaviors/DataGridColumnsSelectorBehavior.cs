@@ -10,7 +10,7 @@ using System.Windows.Markup;
 namespace TDG.Behaviors
 {
     [ContentProperty("ColumnsMaps")]
-    public class DataGridColumsSelectorBehavior : Behavior<DataGrid>
+    public class DataGridColumnsSelectorBehavior : Behavior<DataGrid>
     {
         static readonly EventHandler ItemSourceChanged = (sender, args) =>
             {
@@ -18,7 +18,7 @@ namespace TDG.Behaviors
                 {
                     var itemsSource = dataGrid.ItemsSource;
                     var selectorBehavior = Interaction.GetBehaviors(dataGrid)
-                        .OfType<DataGridColumsSelectorBehavior>()
+                        .OfType<DataGridColumnsSelectorBehavior>()
                         .FirstOrDefault();
                     if (selectorBehavior != null)
                     {

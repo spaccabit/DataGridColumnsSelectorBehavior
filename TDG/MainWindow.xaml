@@ -16,7 +16,7 @@
         </UniformGrid>
         <DataGrid x:Name="data">
             <b:Interaction.Behaviors>
-                <lb:DataGridColumsSelectorBehavior>
+                <lb:DataGridColumnsSelectorBehavior>
                     <lb:DataGridColumnsMap Type="{x:Type model:A}">
                         <lb:DataGridColumnsMap.Columns>
                             <DataGridTextColumn Header="Code" Binding="{Binding Code}">
@@ -60,7 +60,7 @@
                             <DataGridCheckBoxColumn Header="Enabled" Binding="{Binding Enabled}"/>
                         </lb:DataGridColumnsMap.Columns>
                     </lb:DataGridColumnsMap>
-                </lb:DataGridColumsSelectorBehavior>
+                </lb:DataGridColumnsSelectorBehavior>
             </b:Interaction.Behaviors>
         </DataGrid>
     </DockPanel>
